@@ -1,18 +1,19 @@
 ** sch_path: /home/dsatizabal/tt06-fet-opamp/xschem/opamp_tb.sch
 **.subckt opamp_tb
-x1 net3 GND net1 Vi Vo net2 opamp
+x1 net2 GND net1 Vi Vo net3 opamp
 R1 net1 GND 1k m=1
 R2 Vo net1 2k m=1
-V1 Vi GND sin(0 20m 100)
-V2 net2 GND -1
-V3 net3 GND 1
+V1 Vi GND sin(0 20m 100) ac 1
+V3 net2 net3 1.8
 **** begin user architecture code
 
 
 
 .control
-tran 10u 1
+tran 10u 100m
 write opamp_tb.raw
+ac dec 100 1 100MEG
+write opamp_tb_ac.raw
 .endc
 
 
@@ -31,32 +32,34 @@ write opamp_tb.raw
 * expanding   symbol:  opamp.sym # of pins=6
 ** sym_path: /home/dsatizabal/tt06-fet-opamp/xschem/opamp.sym
 ** sch_path: /home/dsatizabal/tt06-fet-opamp/xschem/opamp.sch
-.subckt opamp VDD Iref vin_n vin_p Vout VSS
+.subckt opamp VDD ZREF vin_n vin_p Vout VGND
 *.ipin vin_n
 *.ipin vin_p
-*.ipin Iref
 *.opin Vout
 *.iopin VDD
-*.iopin VSS
+*.iopin ZREF
+*.iopin VGND
 XM1 net1 vin_n net3 net3 sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=180 m=180
 XM2 net2 vin_p net3 net3 sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
 + nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=180 m=180
-XM3 net1 net1 VSS VSS sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM3 net1 net1 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=20 m=20
+XM4 net2 net1 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=20 m=20
+XM5 net3 ZREF VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=20 m=20
-XM4 net2 net1 VSS VSS sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
-+ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=20 m=20
-XM5 net3 Iref VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
-+ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=20 m=20
-XM7 Vout Iref VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM7 Vout ZREF VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=180 m=180
-XM8 Iref Iref VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM8 ZREF ZREF VDD VDD sky130_fd_pr__pfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=18 m=18
-XM9 net4 VDD net2 VSS sky130_fd_pr__nfet_01v8 L=0.6 W=1 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
+XM9 net4 VDD net2 VGND sky130_fd_pr__nfet_01v8 L=0.6 W=1 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
 + nrs='0.29 / W' sa=0 sb=0 sd=0 mult=24 m=24
 XC1 net4 Vout sky130_fd_pr__cap_mim_m3_1 W=17.55 L=15 MF=6 m=6
-XM6 Vout net2 VSS VSS sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)' nrd='0.29 / W'
-+ nrs='0.29 / W' sa=0 sb=0 sd=0 mult=120 m=120
+XM6 Vout net2 VGND VGND sky130_fd_pr__nfet_01v8 L=0.6 W=6 nf=1 ad='W * 0.29' as='W * 0.29' pd='2 * (W + 0.29)' ps='2 * (W + 0.29)'
++ nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=120 m=120
+R1 ZREF VDD sky130_fd_pr__res_generic_l1 W=1 L=5 m=1
+R2 VGND ZREF sky130_fd_pr__res_generic_l1 W=1 L=5 m=1
 .ends
 
 .GLOBAL GND

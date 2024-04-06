@@ -5,16 +5,16 @@ K {}
 V {}
 S {}
 E {}
-N 540 -235 540 -160 { lab=VDD}
-N 820 -235 820 -160 { lab=VDD}
-N 540 -160 607.5 -160 { lab=VDD}
-N 607.5 -160 820 -160 { lab=VDD}
+N 540 -235 540 -160 { lab=VGND}
+N 820 -235 820 -160 { lab=VGND}
+N 540 -160 607.5 -160 { lab=VGND}
+N 607.5 -160 820 -160 { lab=VGND}
 N 620 -335 620 -265 { lab=#net1}
-N 460 -265 540 -265 { lab=VDD}
-N 460 -265 460 -160 { lab=VDD}
-N 460 -160 540 -160 { lab=VDD}
-N 820 -265 887.5 -265 { lab=VDD}
-N 887.5 -265 887.5 -160 { lab=VDD}
+N 460 -265 540 -265 { lab=VGND}
+N 460 -265 460 -160 { lab=VGND}
+N 460 -160 540 -160 { lab=VGND}
+N 820 -265 887.5 -265 { lab=VGND}
+N 887.5 -265 887.5 -160 { lab=VGND}
 N 820 -440 820 -295 { lab=#net2}
 N 540 -560 540 -500 { lab=#net3}
 N 540 -560 820 -560 { lab=#net3}
@@ -32,8 +32,8 @@ N 1217.5 -700 1217.5 -640 { lab=VDD}
 N 1140 -700 1217.5 -700 { lab=VDD}
 N 300 -700 300 -670 { lab=VDD}
 N 300 -700 680 -700 { lab=VDD}
-N 300 -560 402.5 -560 { lab=Iref}
-N 402.5 -640 402.5 -560 { lab=Iref}
+N 300 -560 402.5 -560 { lab=#net4}
+N 402.5 -640 402.5 -560 { lab=#net4}
 N 220 -640 302.5 -640 { lab=VDD}
 N 220 -700 220 -640 { lab=VDD}
 N 220 -700 300 -700 { lab=VDD}
@@ -43,57 +43,65 @@ N 620 -337.5 620 -335 { lab=#net1}
 N 757.5 -470 822.5 -470 { lab=#net3}
 N 540 -440 540 -295 { lab=#net1}
 N 540 -337.5 620 -337.5 { lab=#net1}
-N 340 -640 402.5 -640 { lab=Iref}
-N 525 -640 640 -640 { lab=Iref}
-N 402.5 -640 525 -640 { lab=Iref}
+N 340 -640 402.5 -640 { lab=#net4}
+N 525 -640 640 -640 { lab=#net4}
+N 402.5 -640 525 -640 { lab=#net4}
 N 580 -265 780 -265 { lab=#net1}
-N 300 -610 300 -560 { lab=Iref}
+N 300 -610 300 -560 { lab=#net4}
 N 430 -470 500 -470 { lab=vin_n}
-N 1000 -390 1050 -390 { lab=#net4}
+N 1000 -390 1050 -390 { lab=#net5}
 N 970 -450 970 -430 { lab=VDD}
-N 970 -390 970 -310 { lab=VDD}
+N 970 -390 970 -310 { lab=VGND}
 N 820 -390 940 -390 { lab=#net2}
 N 1110 -390 1140 -390 { lab=Vout}
 N 200 -700 220 -700 { lab=VDD}
-N 200 -160 460 -160 { lab=VDD}
 N 860 -470 920 -470 { lab=vin_p}
-N 200 -560 300 -560 { lab=Iref}
-N 820 -160 1140 -160 { lab=VDD}
-N 1140 -160 1230 -160 { lab=VDD}
-N 1230 -260 1230 -160 { lab=VDD}
-N 1140 -260 1230 -260 { lab=VDD}
+N 820 -160 1140 -160 { lab=VGND}
+N 1140 -160 1230 -160 { lab=VGND}
+N 1230 -260 1230 -160 { lab=VGND}
+N 1140 -260 1230 -260 { lab=VGND}
 N 920 -260 1100 -260 { lab=#net2}
 N 920 -390 920 -260 { lab=#net2}
 N 1140 -390 1140 -290 { lab=Vout}
 N 1140 -610 1140 -390 { lab=Vout}
 N 1140 -440 1280 -440 { lab=Vout}
-N 1140 -230 1140 -160 { lab=VDD}
+N 1140 -230 1140 -160 { lab=VGND}
 N 180 -700 200 -700 {
-lab=VDD}
-N 180 -160 200 -160 {
 lab=VDD}
 N 400 -470 430 -470 {
 lab=vin_n}
 N 970 -310 970 -160 {
-lab=VDD}
+lab=VGND}
 N 970 -700 970 -450 {
 lab=VDD}
 N 920 -520 920 -470 {
 lab=vin_p}
 N 400 -520 920 -520 {
 lab=vin_p}
-N 180 -560 200 -560 {
-lab=Iref}
 N 1020 -640 1020 -600 {
-lab=Iref}
+lab=#net4}
 N 1020 -640 1100 -640 {
-lab=Iref}
+lab=#net4}
 N 400 -560 480 -560 {
-lab=Iref}
+lab=#net4}
 N 480 -600 480 -560 {
-lab=Iref}
+lab=#net4}
 N 480 -600 1020 -600 {
-lab=Iref}
+lab=#net4}
+N 220 -640 220 -420 {
+lab=VDD}
+N 220 -360 220 -300 {
+lab=VGND}
+N 220 -240 220 -160 {
+lab=VGND}
+N 220 -160 460 -160 {
+lab=VGND}
+N 180 -330 220 -330 {
+lab=VGND}
+N 180 -160 220 -160 {
+lab=VGND}
+N 300 -560 300 -330 {}
+N 220 -330 300 -330 {}
 C {sky130_fd_pr/pfet_01v8.sym} 520 -470 0 0 {name=M1
 L=0.6
 W=6
@@ -196,7 +204,17 @@ spiceprefix=X
 }
 C {devices/ipin.sym} 400 -470 0 0 {name=p3 lab=vin_n}
 C {devices/ipin.sym} 400 -520 0 0 {name=p4 lab=vin_p}
-C {devices/ipin.sym} 180 -560 0 0 {name=p5 lab=Iref}
 C {devices/opin.sym} 1280 -440 0 0 {name=p6 lab=Vout}
 C {devices/iopin.sym} 180 -700 2 0 {name=p1 lab=VDD}
-C {devices/iopin.sym} 180 -160 2 0 {name=p2 lab=VSS}
+C {devices/iopin.sym} 180 -330 2 0 {name=p2 lab=ZREF}
+C {sky130_fd_pr/res_generic_l1.sym} 220 -390 0 0 {name=R1
+W=1
+L=5
+model=res_generic_l1
+mult=1}
+C {sky130_fd_pr/res_generic_l1.sym} 220 -270 0 0 {name=R2
+W=1
+L=5
+model=res_generic_l1
+mult=1}
+C {devices/iopin.sym} 180 -160 2 0 {name=p5 lab=VGND}
