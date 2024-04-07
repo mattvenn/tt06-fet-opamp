@@ -32,8 +32,6 @@ N 1217.5 -700 1217.5 -640 { lab=VDD}
 N 1140 -700 1217.5 -700 { lab=VDD}
 N 300 -700 300 -670 { lab=VDD}
 N 300 -700 680 -700 { lab=VDD}
-N 300 -560 402.5 -560 { lab=#net4}
-N 402.5 -640 402.5 -560 { lab=#net4}
 N 220 -640 302.5 -640 { lab=VDD}
 N 220 -700 220 -640 { lab=VDD}
 N 220 -700 300 -700 { lab=VDD}
@@ -43,13 +41,13 @@ N 620 -337.5 620 -335 { lab=#net1}
 N 757.5 -470 822.5 -470 { lab=#net3}
 N 540 -440 540 -295 { lab=#net1}
 N 540 -337.5 620 -337.5 { lab=#net1}
-N 340 -640 402.5 -640 { lab=#net4}
-N 525 -640 640 -640 { lab=#net4}
-N 402.5 -640 525 -640 { lab=#net4}
+N 340 -640 402.5 -640 { lab=ZREF}
+N 525 -640 640 -640 { lab=ZREF}
+N 402.5 -640 525 -640 { lab=ZREF}
 N 580 -265 780 -265 { lab=#net1}
-N 300 -610 300 -560 { lab=#net4}
+N 300 -610 300 -560 { lab=ZREF}
 N 430 -470 500 -470 { lab=vin_n}
-N 1000 -390 1050 -390 { lab=#net5}
+N 1000 -390 1050 -390 { lab=#net4}
 N 970 -450 970 -430 { lab=VDD}
 N 970 -390 970 -310 { lab=VGND}
 N 820 -390 940 -390 { lab=#net2}
@@ -79,29 +77,30 @@ lab=vin_p}
 N 400 -520 920 -520 {
 lab=vin_p}
 N 1020 -640 1020 -600 {
-lab=#net4}
+lab=ZREF}
 N 1020 -640 1100 -640 {
-lab=#net4}
-N 400 -560 480 -560 {
-lab=#net4}
-N 480 -600 480 -560 {
-lab=#net4}
+lab=ZREF}
 N 480 -600 1020 -600 {
-lab=#net4}
+lab=ZREF}
 N 220 -640 220 -420 {
 lab=VDD}
 N 220 -360 220 -300 {
-lab=VGND}
+lab=ZREF}
 N 220 -240 220 -160 {
 lab=VGND}
 N 220 -160 460 -160 {
 lab=VGND}
 N 180 -330 220 -330 {
-lab=VGND}
+lab=ZREF}
 N 180 -160 220 -160 {
 lab=VGND}
-N 300 -560 300 -330 {}
-N 220 -330 300 -330 {}
+N 300 -560 300 -330 {
+lab=ZREF}
+N 220 -330 300 -330 {
+lab=ZREF}
+N 460 -600 480 -600 {}
+N 420 -640 420 -160 {}
+N 420 -600 460 -600 {}
 C {sky130_fd_pr/pfet_01v8.sym} 520 -470 0 0 {name=M1
 L=0.6
 W=6
@@ -109,7 +108,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=180
+nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -120,7 +119,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=180
+nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -131,7 +130,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=20
+nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
@@ -142,7 +141,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=20
+nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
@@ -153,7 +152,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=20
+nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -164,7 +163,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=180
+nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -175,7 +174,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=18
+nf=1 mult=1
 model=pfet_01v8
 spiceprefix=X
 }
@@ -186,7 +185,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=24
+nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
@@ -198,7 +197,7 @@ ad="'W * 0.29'" pd="'2 * (W + 0.29)'"
 as="'W * 0.29'" ps="'2 * (W + 0.29)'"
 nrd="'0.29 / W'" nrs="'0.29 / W'"
 sa=0 sb=0 sd=0
-nf=1 mult=120
+nf=1 mult=1
 model=nfet_01v8
 spiceprefix=X
 }
