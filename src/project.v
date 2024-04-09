@@ -18,11 +18,11 @@ module tt_um_dsatizabal_opamp (
 
     opamp opamp (
     .VDD(VPWR),
-    .VSS(VGND),
+    .VGND(VGND),
     .ZREF(ua[0]),
     .vin_n(ua[1]),
     .vin_p(ua[2]),
-    .vout(ua[3]),
+    .Vout(ua[3]),
     );
 
     // ties for the output enables
