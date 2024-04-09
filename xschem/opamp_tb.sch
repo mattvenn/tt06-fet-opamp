@@ -25,9 +25,11 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="11 7"
+color="11 7 12 15"
 node="vi
-vo"}
+vo
+vilay
+volay"}
 B 2 310 -120 750 130 {flags=graph,unlocked
 y1=-6.9
 y2=12
@@ -40,8 +42,9 @@ x1=0
 x2=8
 
 subdivx=8
-node="\\"vo db20()\\""
-color=4
+node="\\"vo db20()\\"
+\\"volay db20()\\""
+color="4 7"
 dataset=0
 unitx=1
 logx=1
@@ -101,11 +104,11 @@ lab=#net4}
 N -480 -100 -480 -20 {
 lab=#net4}
 N -320 0 -310 0 {
-lab=Vlay}
+lab=Volay}
 N -310 -100 -310 0 {
-lab=Vlay}
+lab=Volay}
 N -370 -100 -310 -100 {
-lab=Vlay}
+lab=Volay}
 N -490 20 -490 40 {
 lab=Vilay}
 N -490 20 -460 20 {
@@ -127,7 +130,7 @@ lab=#net6}
 N -570 -20 -550 -20 {
 lab=GND}
 N -310 0 -290 0 {
-lab=Vlay}
+lab=Volay}
 N -420 60 -420 180 {
 lab=GND}
 N -490 100 -490 180 {
