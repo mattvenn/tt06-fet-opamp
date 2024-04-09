@@ -1,4 +1,4 @@
-PROJECT_NAME ?= tt_um_dsatizabal_opamp
+PROJECT_NAME ?= opamp
 MAGIC_RC := $(PDK_ROOT)/sky130A/libs.tech/magic/sky130A.magicrc
 
 .PHONY: lvs magic start
