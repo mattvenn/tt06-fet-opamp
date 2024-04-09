@@ -5,6 +5,11 @@ R1 net1 GND 1k m=1
 R2 Vo net1 2k m=1
 V1 Vi GND sin(0 20m 100) ac 1
 V3 net2 net3 1.8
+x1 net5 GND net4 Vilay Volay net6 opamp_parax
+R3 net4 GND 1k m=1
+R4 Volay net4 2k m=1
+V2 Vilay GND sin(0 20m 100) ac 1
+V4 net5 net6 1.8
 **** begin user architecture code
 
 
@@ -62,5 +67,9 @@ R1 ZREF VDD sky130_fd_pr__res_generic_l1 W=1 L=5 m=1
 R2 VGND ZREF sky130_fd_pr__res_generic_l1 W=1 L=5 m=1
 .ends
 
+
+* expanding   symbol:  opamp_parax.sym # of pins=6
+** sym_path: /home/dsatizabal/tt06-fet-opamp/xschem/opamp.sym
+.include /home/dsatizabal/tt06-fet-opamp/mag/opamp.sim.spice
 .GLOBAL GND
 .end

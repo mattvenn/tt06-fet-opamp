@@ -94,6 +94,52 @@ N -160 180 -80 180 {
 lab=GND}
 N -10 180 -10 200 {
 lab=GND}
+N -490 -20 -460 -20 {
+lab=#net4}
+N -480 -100 -430 -100 {
+lab=#net4}
+N -480 -100 -480 -20 {
+lab=#net4}
+N -320 0 -310 0 {
+lab=Vlay}
+N -310 -100 -310 0 {
+lab=Vlay}
+N -370 -100 -310 -100 {
+lab=Vlay}
+N -490 20 -490 40 {
+lab=Vilay}
+N -490 20 -460 20 {
+lab=Vilay}
+N -400 -60 -250 -60 {
+lab=#net5}
+N -400 -60 -400 -50 {
+lab=#net5}
+N -500 20 -490 20 {
+lab=Vilay}
+N -250 -60 -250 20 {
+lab=#net5}
+N -250 80 -250 180 {
+lab=#net6}
+N -380 60 -380 180 {
+lab=#net6}
+N -380 180 -250 180 {
+lab=#net6}
+N -570 -20 -550 -20 {
+lab=GND}
+N -310 0 -290 0 {
+lab=Vlay}
+N -420 60 -420 180 {
+lab=GND}
+N -490 100 -490 180 {
+lab=GND}
+N -490 180 -420 180 {
+lab=GND}
+N -570 -20 -570 180 {
+lab=GND}
+N -570 180 -490 180 {
+lab=GND}
+N -420 180 -420 200 {
+lab=GND}
 C {opamp.sym} 20 0 0 0 {name=x1}
 C {devices/res.sym} -110 -20 1 0 {name=R1
 value=1k
@@ -136,3 +182,22 @@ tclcommand="
 xschem raw_read $netlist_dir/opamp_tb_ac.raw ac
 "
 }
+C {opamp.sym} -390 0 0 0 {schematic=opamp_parax.sim
+spice_sym_def="tcleval(.include [file normalize ../mag/opamp.sim.spice])"
+tclcommand="textwindow [file normalize ../mag/opamp.sim.spice]"
+}
+C {devices/res.sym} -520 -20 1 0 {name=R3
+value=1k
+footprint=1206
+device=resistor
+m=1}
+C {devices/res.sym} -400 -100 1 0 {name=R4
+value=2k
+footprint=1206
+device=resistor
+m=1}
+C {devices/vsource.sym} -490 70 0 0 {name=V2 value="sin(0 20m 100) ac 1" savecurrent=false}
+C {devices/vsource.sym} -250 50 0 0 {name=V4 value=1.8 savecurrent=false}
+C {devices/gnd.sym} -420 200 0 0 {name=l1 lab=GND}
+C {devices/lab_pin.sym} -500 20 0 0 {name=p3 sig_type=std_logic lab=Vilay}
+C {devices/lab_pin.sym} -290 0 2 0 {name=p4 sig_type=std_logic lab=Volay}
